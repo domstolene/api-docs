@@ -1,7 +1,6 @@
 # API FOR DIGITAL INNSENDING
 
 Dette API-et lar organisasjoner sende inn digitale skjemaer til Domstolene.
-??? Noe om hvilke skjemaer som kan sendes inn?
 
 ## Tilgangsstyring
 
