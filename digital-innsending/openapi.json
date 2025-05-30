@@ -2,13 +2,13 @@
   "openapi" : "3.1.0",
   "info" : {
     "title" : "Digital innsending til Domstolene",
-    "description" : " En innsending består av et utfylt skjema og en liste med vedlegg.\n\n Dersom en innsending skal inneholde vedlegg, lastes disse opp først via eget endepunkt som svarer med\n kvittering. Kvittering(er) inkluderes så i innsendingen.\n\n Det er definert et sett med skjemaspesifikasjoner som kan sendes inn.\n Det utfylte skjemaet må samsvare med en av spesifikasjonene.",
+    "description" : "_Dette APIet er under utvikling og vil kunne endres fortløpende._\n\nEn innsending består av et utfylt skjema og en liste med vedlegg.\n\nDersom en innsending skal inneholde vedlegg, lastes disse opp først via eget endepunkt som svarer med\nkvittering. Kvittering(er) inkluderes så i innsendingen.\n\nDet er definert et sett med skjemaspesifikasjoner som kan sendes inn.\nDet utfylte skjemaet må samsvare med en av spesifikasjonene.",
     "contact" : {
       "name" : "Domstoladminitrasjonen",
       "url" : "https://domstol.no",
       "email" : "postmottak@domstol.no"
     },
-    "version" : "v1.0.0"
+    "version" : "v0.0.1"
   },
   "externalDocs" : {
     "description" : "Dokumentasjon på Github",

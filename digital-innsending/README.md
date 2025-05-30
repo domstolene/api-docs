@@ -1,16 +1,16 @@
-# API FOR DIGITAL INNSENDING
+# API for digital innsending
 
 Dette API-et lar organisasjoner sende inn digitale skjemaer til Domstolene.
 
 ## Tilgangsstyring
 
-API-et benytter Maskinporten for autentisering, og organisasjoner som skal sende inn må bli gitt tilgang til nødvendige
+API-et benytter Maskinporten for autentisering. Organisasjoner som skal sende inn må bli gitt tilgang til nødvendige
 scopes i Samarbeidsportalen. [Ta kontakt](#kontakt) for mer informasjon.
 
 ## Dokumentasjon
 
-- Fullstendig API-spesifikasjon: [openAPI-spesifikasjonen](openapi.json)
-- Kan åpnes i [Swagger Editor](https://editor-next.swagger.io/) for interaktiv utforsking.
+- Fullstendig API-spesifikasjon: [openAPI-spec](openapi.json)
+- Kan åpnes i f.eks [Swagger Editor](https://editor-next.swagger.io/) for interaktiv utforsking.
 
 ## Kontakt
 
