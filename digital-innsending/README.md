@@ -10,7 +10,9 @@ scopes i Samarbeidsportalen. [Ta kontakt](#kontakt) for mer informasjon.
 ## Dokumentasjon
 
 - Fullstendig API-spesifikasjon: [openAPI-spec](openapi.json)
-- Kan åpnes i f.eks [Swagger Editor](https://editor-next.swagger.io/) for interaktiv utforsking.
+- Kan åpnes i
+  f.eks [Swagger Editor](https://editor-next.swagger.io/?url=https://raw.githubusercontent.com/domstolene/api-docs/refs/heads/main/digital-innsending/openapi.json)
+  for interaktiv utforsking.
 
 ## Kontakt
 
