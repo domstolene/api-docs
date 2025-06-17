@@ -190,6 +190,9 @@
           "type" : "null",
           "title" : "Unit"
         }, {
+          "type" : "null",
+          "title" : "Unit"
+        }, {
           "$ref" : "#/components/schemas/Hoveddokumentskjema_v0_0_1"
         }, {
           "type" : "null",
@@ -254,9 +257,6 @@
             "enum" : [ "Hoveddokumentskjema_v0_0_1" ],
             "title" : "String"
           },
-          "avsenderInfo" : {
-            "$ref" : "#/components/schemas/no.domstol.innsending.models.dto.skjemaer.AvsenderInfoDto"
-          },
           "hoveddokument" : {
             "$ref" : "#/components/schemas/no.domstol.innsending.models.dto.generell.VedleggDto"
           },
@@ -271,12 +271,77 @@
             "title" : "List<Part>"
           },
           "sakstype" : {
-            "type" : "string",
-            "title" : "String"
+            "$ref" : "#/components/schemas/no.domstol.innsending.models.dto.skjemaer.SakstypeDto"
+          },
+          "avsenderInfo" : {
+            "$ref" : "#/components/schemas/no.domstol.innsending.models.dto.skjemaer.AvsenderInfoDto"
           }
         },
         "required" : [ "avsenderInfo", "hoveddokument", "mottaker", "parter", "sakstype", "spesifikasjon" ],
         "title" : "Hoveddokumentskjema_v0_0_1"
+      },
+      "no.domstol.innsending.models.dto.generell.DomstolDto" : {
+        "type" : "string",
+        "enum" : [ "AGDER_TINGRETT", "GAMLE_BUSKERUD_TINGRETT", "FOLLO_OG_NORDRE_OSTFOLD_TINGRETT", "HAUGALAND_OG_SUNNHORDLAND_TINGRETT", "HELGELAND_TINGRETT", "GAMLE_HORDALAND_TINGRETT", "MIDTRE_HALOGALAND_TINGRETT", "MORE_OG_ROMSDAL_TINGRETT", "NORD_TROMS_OG_SENJA_TINGRETT", "OSLO_TINGRETT", "RINGERIKE_ASKER_OG_BAERUM_TINGRETT", "ROMERIKE_OG_GLAMDAL_TINGRETT", "SALTEN_OG_LOFOTEN_TINGRETT", "SIS_JA_NUORTA_FINNMARKKU_DIGGEGODDI_INDRE_OG_OSTRE_FINNMARK_TINGRETT", "SOGN_OG_FJORDANE_TINGRETT", "SONDRE_OSTFOLD_TINGRETT", "SOR_ROGALAND_TINGRETT", "TELEMARK_TINGRETT", "TRONDELAG_TINGRETT", "VESTFOLD_TINGRETT", "VESTRE_FINNMARK_TINGRETT", "VESTRE_INNLANDET_TINGRETT", "OSTRE_INNLANDET_TINGRETT", "NORDMORE_ROMSDAL_TINGRETT", "ASKER_BARUM_TINGRETT", "GUDBRANDSDAL_TINGRETT", "HARDANGER_VOSS_TINGRETT", "HEDMARKEN_OSTERDAL_TINGRETT", "NEDRE_TELEMARK_TINGRETT", "NYE_BUSKERUD_TINGRETT", "NYE_HORDALAND_TINGRETT", "OVRE_TELEMARK_TINGRETT", "RINGERIKE_HALLINGDAL_TINGRETT", "SUNNMORE_TINGRETT", "VESTOPPLAND_VALDRES_TINGRETT" ],
+        "title" : "DomstolDto"
+      },
+      "no.domstol.innsending.models.dto.skjemaer.Part" : {
+        "anyOf" : [ {
+          "$ref" : "#/components/schemas/Foretak"
+        }, {
+          "$ref" : "#/components/schemas/Person"
+        } ],
+        "title" : "Part"
+      },
+      "Foretak" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string",
+            "title" : "String"
+          },
+          "rolle" : {
+            "$ref" : "#/components/schemas/no.domstol.innsending.models.dto.skjemaer.Part.Rolle"
+          },
+          "navn" : {
+            "type" : "string",
+            "title" : "String"
+          }
+        },
+        "required" : [ "id", "navn", "rolle" ],
+        "title" : "Foretak"
+      },
+      "no.domstol.innsending.models.dto.skjemaer.Part.Rolle" : {
+        "type" : "string",
+        "enum" : [ "SAKSOEKER", "SAKSOEKT" ],
+        "title" : "Rolle"
+      },
+      "Person" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : [ "null", "string" ],
+            "title" : "String"
+          },
+          "rolle" : {
+            "$ref" : "#/components/schemas/no.domstol.innsending.models.dto.skjemaer.Part.Rolle"
+          },
+          "etternavn" : {
+            "type" : "string",
+            "title" : "String"
+          },
+          "fornavn" : {
+            "type" : "string",
+            "title" : "String"
+          }
+        },
+        "required" : [ "etternavn", "fornavn", "rolle" ],
+        "title" : "Person"
+      },
+      "no.domstol.innsending.models.dto.skjemaer.SakstypeDto" : {
+        "type" : "string",
+        "enum" : [ "KONKURSBEGJARING_VED_PRIVAT_REKVIRENT", "KONKURSBEGJARING_FRA_ANSATT", "OPPBUDSBEGJARING", "FRAVIKELSE_FAST_EIENDOM", "BEGJARING_REKONSTRUKSJON", "STEVNING", "TVANGOPPLOSNING_SAMEIE", "TVANGOPPLOSNING_SAMEIE_FAST_EIENDOM", "TVANGOPPLOSNING_SAMEIE_BORETTSANDELER", "TVANGOPPLOSNING_SAMEIE_ADKOMSTDOK", "BEGJARING_OM_TVANGSSALG", "TVANGSSALG_FAST_EIENDOM", "TVANGSSALG_ANDEL_BORETTSLAG", "TVANGSSALG_SKIP", "TVANGSSALG_ADKOMSTDOK", "KONKURS_VED_OFFENTLIG_REKVIRENT" ],
+        "title" : "SakstypeDto"
       },
       "no.domstol.innsending.models.dto.skjemaer.AvsenderInfoDto" : {
         "type" : "object",
@@ -336,64 +401,6 @@
         },
         "required" : [ "nin" ],
         "title" : "NationalIdentificationNumber"
-      },
-      "no.domstol.innsending.models.dto.generell.DomstolDto" : {
-        "type" : "string",
-        "enum" : [ "AGDER_TINGRETT", "GAMLE_BUSKERUD_TINGRETT", "FOLLO_OG_NORDRE_OSTFOLD_TINGRETT", "HAUGALAND_OG_SUNNHORDLAND_TINGRETT", "HELGELAND_TINGRETT", "GAMLE_HORDALAND_TINGRETT", "MIDTRE_HALOGALAND_TINGRETT", "MORE_OG_ROMSDAL_TINGRETT", "NORD_TROMS_OG_SENJA_TINGRETT", "OSLO_TINGRETT", "RINGERIKE_ASKER_OG_BAERUM_TINGRETT", "ROMERIKE_OG_GLAMDAL_TINGRETT", "SALTEN_OG_LOFOTEN_TINGRETT", "SIS_JA_NUORTA_FINNMARKKU_DIGGEGODDI_INDRE_OG_OSTRE_FINNMARK_TINGRETT", "SOGN_OG_FJORDANE_TINGRETT", "SONDRE_OSTFOLD_TINGRETT", "SOR_ROGALAND_TINGRETT", "TELEMARK_TINGRETT", "TRONDELAG_TINGRETT", "VESTFOLD_TINGRETT", "VESTRE_FINNMARK_TINGRETT", "VESTRE_INNLANDET_TINGRETT", "OSTRE_INNLANDET_TINGRETT", "NORDMORE_ROMSDAL_TINGRETT", "ASKER_BARUM_TINGRETT", "GUDBRANDSDAL_TINGRETT", "HARDANGER_VOSS_TINGRETT", "HEDMARKEN_OSTERDAL_TINGRETT", "NEDRE_TELEMARK_TINGRETT", "NYE_BUSKERUD_TINGRETT", "NYE_HORDALAND_TINGRETT", "OVRE_TELEMARK_TINGRETT", "RINGERIKE_HALLINGDAL_TINGRETT", "SUNNMORE_TINGRETT", "VESTOPPLAND_VALDRES_TINGRETT" ],
-        "title" : "DomstolDto"
-      },
-      "no.domstol.innsending.models.dto.skjemaer.Part" : {
-        "anyOf" : [ {
-          "$ref" : "#/components/schemas/Foretak"
-        }, {
-          "$ref" : "#/components/schemas/Person"
-        } ],
-        "title" : "Part"
-      },
-      "Foretak" : {
-        "type" : "object",
-        "properties" : {
-          "id" : {
-            "type" : "string",
-            "title" : "String"
-          },
-          "rolle" : {
-            "$ref" : "#/components/schemas/no.domstol.innsending.models.dto.skjemaer.Part.Rolle"
-          },
-          "navn" : {
-            "type" : "string",
-            "title" : "String"
-          }
-        },
-        "required" : [ "id", "navn", "rolle" ],
-        "title" : "Foretak"
-      },
-      "no.domstol.innsending.models.dto.skjemaer.Part.Rolle" : {
-        "type" : "string",
-        "enum" : [ "SAKSOEKER", "SAKSOEKT" ],
-        "title" : "Rolle"
-      },
-      "Person" : {
-        "type" : "object",
-        "properties" : {
-          "id" : {
-            "type" : [ "null", "string" ],
-            "title" : "String"
-          },
-          "rolle" : {
-            "$ref" : "#/components/schemas/no.domstol.innsending.models.dto.skjemaer.Part.Rolle"
-          },
-          "etternavn" : {
-            "type" : "string",
-            "title" : "String"
-          },
-          "fornavn" : {
-            "type" : "string",
-            "title" : "String"
-          }
-        },
-        "required" : [ "etternavn", "fornavn", "rolle" ],
-        "title" : "Person"
       },
       "Empty_v1_0_0" : {
         "type" : "object",
