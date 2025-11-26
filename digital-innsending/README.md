@@ -16,4 +16,4 @@ scopes i Samarbeidsportalen. [Ta kontakt](#kontakt) for mer informasjon.
 
 ## Kontakt
 
-For spørsmål, ta kontakt med produkteier Line Westberg (line.westberg@domstol.no)
+For spørsmål, send e-post til postmottak@domstol.no
