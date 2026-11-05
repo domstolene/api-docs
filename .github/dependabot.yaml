@@ -1,0 +1,14 @@
+# Kort Dependabot-intro i DA utviklerhåndbok: https://domstol.atlassian.net/wiki/spaces/TP/pages/3107094734/Bruk+av+GitHub#Dependabot
+#
+# Offisiell konfigurasjonsreferanse: https://help.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
+
+version: 2
+updates:
+  - package-ecosystem: "gradle"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "github-actions"
+    directory: "/" # Workflow files stored in the default location of `.github/workflows`
+    schedule:
+      interval: "monthly"
