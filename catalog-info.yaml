@@ -1,0 +1,24 @@
+# Katalogentiteter for domstolene/api-docs.
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: digital-innsending-api
+  namespace: default
+  title: Digital innsending API
+  description: Publisert OpenAPI-kontrakt for digital innsending.
+  annotations:
+    backstage.io/source-location: url:https://github.com/domstolene/api-docs/blob/main/digital-innsending/openapi.json
+    github.com/project-slug: domstolene/api-docs
+  links:
+  - url: https://github.com/domstolene/api-docs/blob/main/digital-innsending/openapi.json
+    title: OpenAPI-kontrakt
+    icon: github
+spec:
+  type: openapi
+  lifecycle: production
+  owner: group:default/t-atb
+  system: system:default/applications
+  definition:
+    "$text": ./digital-innsending/openapi.json
